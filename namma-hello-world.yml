@@ -1,0 +1,7 @@
+---
+- name: namma-second-playbook
+  hosts: localhost
+
+  tasks:
+    - name: "Print Namma Hello World"
+      debug: msg="namma hello world"  

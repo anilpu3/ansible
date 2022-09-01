@@ -1,0 +1,12 @@
+---
+- name: file permission
+  hosts: nammaip
+
+  tasks:
+    - name: file permission kodu
+      file:
+        path: /home/ubuntu/ansible/
+        mode: 0777
+        owner: root
+        group: root
+

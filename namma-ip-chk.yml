@@ -1,0 +1,7 @@
+---
+- name: check namma ip
+  hosts: nammaip
+
+  tasks:
+    - name: check connectivity
+      ping:  

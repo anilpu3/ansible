@@ -1,0 +1,13 @@
+---
+- name: Capee module
+  hosts: nammaip
+
+  tasks:
+    - name: copy files to target host machine
+      become: true
+      copy:
+        src: /etc/ansible/playbooks/
+        dest: /home/ubuntu/ansible
+        owner: ubuntu
+        group: ubuntu
+        mode: 0777  

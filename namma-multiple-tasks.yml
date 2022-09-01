@@ -1,0 +1,10 @@
+---
+- name: runnin 2 tasks in the same playbook
+  hosts: localhost
+
+  tasks:
+    - name: test connectivity
+      ping:
+
+    - name: print the statement
+      debug: msg="test success/failure"    

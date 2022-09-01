@@ -1,0 +1,14 @@
+---
+- name: installation of httpd and startin it
+  hosts: localhost
+
+  tasks:
+    - name: install httpd
+      apt:
+        name: apache2
+        state: present
+
+    - name: start service
+      service:
+        name: apache2
+        state: started  
