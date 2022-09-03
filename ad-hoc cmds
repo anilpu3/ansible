@@ -16,3 +16,9 @@ ansible-inventory --list (lists all the remote clients/ips which are stored in t
 ansible all -m ping
 ansible - a "uptime" all (to run the cmd on the target host machine)
 become: true (if you hav logged in as an user, den u wil execute the yml file as an user. In case if its root den, u wil execute as root.)
+====================================
+Firewall installation (firewalld)
+sudo apt update
+sudo apt install ufw
+sudo systemctl status firewalld
+====================================
