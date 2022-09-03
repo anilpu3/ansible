@@ -17,7 +17,7 @@ ansible all -m ping
 ansible - a "uptime" all (to run the cmd on the target host machine)
 become: true (if you hav logged in as an user, den u wil execute the yml file as an user. In case if its root den, u wil execute as root.)
 ====================================
-Firewall installation (firewalld)
+Firewall installation (firewalld) in ubuntu (debian)
 sudo apt update
 sudo apt install ufw
 sudo systemctl status firewalld
