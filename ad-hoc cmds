@@ -22,3 +22,25 @@ sudo apt update
 sudo apt install ufw
 sudo systemctl status firewalld
 ====================================
+firewall-cmd --list-all - to check, if the services are enabled in firewalld
+root@ip-172-31-67-47:~# firewall-cmd --list-all
+public
+  target: default
+  icmp-block-inversion: no
+  interfaces:
+  sources:
+  services: dhcpv6-client http ssh
+  ports:
+  protocols:
+  forward: yes
+  masquerade: no
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+  
+  In dis case,if you check the services, the enabled services are 
+  	- dhcpv6-client
+	- ssh
+	- http
+======================================
