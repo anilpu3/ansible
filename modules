@@ -50,7 +50,7 @@ state: stopped
 ===========================================================================
 
 ===========================================================================
-Cronjob (use to schedule jobs in ansible)
+Cronjob (use to schedule jobs via ansible)
 cron:
         name: scheduled by ansible
         minute: "2"
@@ -75,7 +75,7 @@ user:
        
 Note:- we can't giv the passwrd directly in the playbook, nammanewpassword s a variable, variable shud b given in a singe word.
 password can be given/passed while runnin the playbook .
-ansible-playbook <.yml> --extra-vars nammanewpassword=namma@123
+ansible-playbook namma-user.yml --extra-vars nammanewpassword=namma@123
 ===========================================================================
 
 ===========================================================================
