@@ -44,3 +44,18 @@ public
 	- ssh
 	- http
 ======================================
+crontab -l : displays scheduled jobs
+cat /etc/passwrd : displays user details.
+id <user_name>
+
+---
+- name: add password to the user on target host machine
+  hosts: nammaip
+
+  tasks:
+    - name: update passwrd
+      user:
+       name: soopr-ranga
+       update_password: always
+       password: "{{ nammanewpassword | password_hash('sha512') }}" 
+note:- nammanewpassword s a variable, variable shud b given in a singe word (ansible-playbook <.yml> --extra-vars nammanewpassword=namma@123)  
