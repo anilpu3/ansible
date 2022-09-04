@@ -1,0 +1,124 @@
+===========================================================================
+Ping module (to test connectivity)
+ping: 
+===========================================================================
+
+===========================================================================
+Copy module (copy files from host machine to target host machine)
+copy:
+  src: /etc/ansible/playbooks
+  dest: /home/ubuntu/ansible
+=========================================================================== 
+
+===========================================================================
+Debug module (to print statements)
+debug: msg="<txt statement>"
+===========================================================================
+
+===========================================================================
+File module (to set permission and assign a path directory)
+file:
+        path: /home/ubuntu/ansible/
+        mode: 0777
+        owner: root
+        group: root
+        state: directory
+===========================================================================
+
+===========================================================================
+Package module (to install packages)
+apt:
+        name: apache2
+        state: present
+yum:
+        name: httpd
+        state: present
+ 
+state: latest
+state: absent or removed 
+===========================================================================
+
+===========================================================================
+Service module (to start, restart, stop the service)
+service:
+        name: apache2
+        state: started
+        
+state: restarted
+state: reloaded
+state: stopped
+===========================================================================
+
+===========================================================================
+Cronjob (use to schedule jobs in ansible)
+cron:
+        name: scheduled by ansible
+        minute: "2"
+        hour: "*"
+        day: "*"  
+        month: "*"
+        weekday: "*"
+        user: root
+        job: "/root/home/ubuntu/namma-test-script.sh" (execute)
+
+crontab -l : displays scheduled jobs
+===========================================================================
+
+===========================================================================
+User module (use to add user, set passwrd etc)
+user:
+       name: soor-ranga
+       home: /home/soopr-ranga
+       shell: /bin/bash
+       update_password: always
+       password: "{{ nammanewpassword|password_hash('sha512') }}" 
+       
+Note:- we can't giv the passwrd directly in the playbook, nammanewpassword s a variable, variable shud b given in a singe word.
+password can be given/passed while runnin the playbook .
+ansible-playbook <.yml> --extra-vars nammanewpassword=namma@123
+===========================================================================
+
+===========================================================================
+firewalld (deals with firewall, you can open port for any service)
+firewalld:
+        service: http
+        permanent: true # this keeps the port enabled even after system reboot.
+        state: enabled
+
+firewall-cmd --list-all - to check, if the services are enabled in firewalld
+output:-
+public
+  target: default
+  icmp-block-inversion: no
+  interfaces:
+  sources:
+  services: dhcpv6-client http ssh
+  ports:
+  protocols:
+  forward: yes
+  masquerade: no
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+  
+  In dis case,if you check the services, the enabled services are 
+  	- dhcpv6-client
+	- ssh
+	- http
+===========================================================================
+
+===========================================================================
+Shell module (used to run the shell scripts)
+shell: "/root/home/ubuntu/namma-test-script.sh"
+===========================================================================
+
+===========================================================================
+get_url (used to download the file from url)
+get_url:
+      url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.23/bin/apache-tomcat-10.0.23-fulldocs.tar.gz
+      dest: /root/home/ubuntu/
+      mode: 0755
+      owner: ubuntu
+      group: soopr-ranga
+===========================================================================
