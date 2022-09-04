@@ -31,7 +31,7 @@ apt:
         name: apache2 (package name)
         state: present
 yum:
-        name: httpd
+        name: httpd (package name)
         state: present
  
 state: latest
