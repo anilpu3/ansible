@@ -28,7 +28,7 @@ file:
 ===========================================================================
 Package module (to install packages)
 apt:
-        name: apache2
+        name: apache2 (package name)
         state: present
 yum:
         name: httpd
@@ -41,7 +41,7 @@ state: absent or removed
 ===========================================================================
 Service module (to start, restart, stop the service)
 service:
-        name: apache2
+        name: apache2 (service name)
         state: started
         
 state: restarted
@@ -67,7 +67,7 @@ crontab -l : displays scheduled jobs
 ===========================================================================
 User module (use to add user, set passwrd etc)
 user:
-       name: soor-ranga
+       name: soopr-ranga
        home: /home/soopr-ranga
        shell: /bin/bash
        update_password: always
@@ -81,8 +81,8 @@ ansible-playbook <.yml> --extra-vars nammanewpassword=namma@123
 ===========================================================================
 firewalld (deals with firewall, you can open port for any service)
 firewalld:
-        service: http
-        permanent: true # this keeps the port enabled even after system reboot.
+        service: http (service name)
+        permanent: true # this keeps the port# enabled even after system reboot.
         state: enabled
 
 firewall-cmd --list-all - to check, if the services are enabled in firewalld
