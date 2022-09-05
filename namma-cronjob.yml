@@ -1,0 +1,25 @@
+---
+- name: copy, giv permisiion and schedule a job as a root
+  hosts: nammaip
+
+  tasks:
+    - name: copy the shell script to target host
+      copy:
+        src: /etc/ansible/playbooks/namma-test-script.sh
+        dest: /root/home/ubuntu/
+
+    - name: giv executable permission to the file   
+      file:
+        path: /root/home/ubuntu/namma-test-script.sh
+        mode: a+x
+
+    - name: schedule job every 2min as a root
+      cron:
+        name: scheduled by ansible
+        minute: "2"
+        hour: "*"
+        day: "*"  
+        month: "*"
+        weekday: "*"
+        user: root
+        job: "/root/home/ubuntu/namma-test-script.sh"      

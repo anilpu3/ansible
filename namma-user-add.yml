@@ -1,0 +1,11 @@
+---
+- name: add user on target host
+  hosts: nammaip
+  
+  tasks:
+    - name: addin user soopr-ranga
+      user:
+       name: soor-ranga
+       home: /home/soopr-ranga
+       shell: /bin/bash
+       uid:  

@@ -1,0 +1,10 @@
+---
+- name: add password to the user on target host machine
+  hosts: nammaip
+
+  tasks:
+    - name: update passwrd
+      user: 
+       name: soopr-ranga
+       update_password: always
+       password: "{{ nammanewpassword|password_hash('sha512') }}"

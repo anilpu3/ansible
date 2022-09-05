@@ -1,0 +1,29 @@
+---
+- name: Installin httpd and startin the service, enable port for http
+  hosts: nammaip
+  tasks:
+    - name: install httpd
+      apt:
+        name: apache2
+        state: present
+
+    - name: install firewall
+      apt:
+        name: ufw
+        state: latest
+
+    - name: apache2 service start
+      service:
+        name: apache2
+        state: started
+
+    - name: open port 80 for http access
+      firewalld:
+        service: http
+        permanent: true # this keeps the port enabled even after system reboot.
+        state: enabled
+
+    - name: restart firewall service
+      service:
+        name: firewalld
+        state: reloaded

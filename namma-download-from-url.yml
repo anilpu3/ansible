@@ -1,0 +1,20 @@
+---
+- name: create a directory and download the tomcat doc from the url into the created dir
+  hosts: nammaip
+
+  tasks:
+   - name: create dir from file module
+     file:
+      path: /root/home/ubuntu/
+      state: directory
+      mode: 0755
+      owner: root
+      group: root
+
+   - name: download the tomcat doc from url usin get_url module
+     get_url:
+      url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.23/bin/apache-tomcat-10.0.23-fulldocs.tar.gz
+      dest: /root/home/ubuntu/
+      mode: 0755
+      owner: ubuntu
+      group: soopr-ranga  

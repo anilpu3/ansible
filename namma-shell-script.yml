@@ -1,0 +1,17 @@
+---
+- name: copy and give executable permission and then run the shell script on target host machine
+  hosts: nammaip  
+
+  tasks:
+    - name: copy shell script to target host machine
+      copy:
+        src: /etc/ansible/playbooks/namma-test-script.sh
+        dest: /root/home/ubuntu/
+
+    - name: giv permission to the file
+      file:
+        path: /root/home/ubuntu/namma-test-script.sh
+        mode: a+x      
+    
+    - name: run shell script
+      shell: "/root/home/ubuntu/namma-test-script.sh"      
